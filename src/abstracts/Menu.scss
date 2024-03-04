@@ -1,0 +1,34 @@
+.wrapper-menu {
+    height: 90vh;
+    width: 100%;
+    background-color: #F3E4E1;
+    background-image: url("../logos/header3.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    padding-top: 7rem;
+}
+
+.wrapper-menu-footer {
+    background-color: #F3E4E1;
+    background-image: url("../logos/header4.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: bottom;
+    height: 10vh;
+    width: 100%;
+}
+
+
+.header-product {
+    padding-top: 0.5rem;
+    padding-right: 5rem;
+}
+
+.product-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 6rem;
+    
+}
