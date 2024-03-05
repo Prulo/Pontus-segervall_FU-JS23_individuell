@@ -1,34 +1,74 @@
 .wrapper-menu {
-    height: 90vh;
-    width: 100%;
-    background-color: #F3E4E1;
-    background-image: url("../logos/header3.png");
-    background-repeat: no-repeat;
-    background-size: contain;
-    padding-top: 7rem;
+  height: 100%;
+  width: 100%;
+  background-color: #f3e4e1;
+  background-image: url("../logos/header3.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  padding-top: 7rem;
 }
 
-.wrapper-menu-footer {
-    background-color: #F3E4E1;
-    background-image: url("../logos/header4.png");
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: bottom;
-    height: 10vh;
-    width: 100%;
-}
 
+main {
+background-image: url("../logos/header4.png");
+background-repeat: no-repeat;
+  background-size: contain;
+  background-position: bottom;
+  padding-bottom: 5rem;
+}
 
 .header-product {
-    padding-top: 0.5rem;
-    padding-right: 5rem;
+  padding-top: 0.5rem;
+  width: 100%;
 }
 
 .product-container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    height: 6rem;
-    
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 6.5rem;
+  margin-right: 32px;
+  margin-left: 20px;
 }
+
+.header-kaffe {
+  font-family: PT Serif;
+  font-size: 23px;
+  font-weight: 700;
+  line-height: 28px;
+  color: #2f2926;
+}
+
+.text-kaffe {
+  font-family: Work Sans;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+}
+
+.pris-kaffe {
+  font-family: PT Serif;
+  font-size: 23px;
+  font-weight: 700;
+  line-height: 28px;
+  justify-content: flex-end;
+  display: flex;
+  width: 25%;
+  
+}
+
+.open {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #2F2926;
+}
+ 
+
+

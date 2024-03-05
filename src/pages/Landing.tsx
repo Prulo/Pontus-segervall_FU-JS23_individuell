@@ -7,12 +7,15 @@ const Landing = () => {
   <Link to="/menu" className="link">
     <div className='picture'>
     <div className="wrapper">
-      
+      <div className='img-box-landing'>
       <img className="img" src={Vector} alt="Cant find pic" />
-      <h1>AIR BEAN</h1>
-      <p>DRONEDELIVERED COFFEE</p>
+      </div>
+      <h1 className='header-landing'>AIR BEAN</h1>
+      <p className='text-landing'>DRONEDELIVERED COFFEE</p>
         
-    </div></div></Link>
+    </div>
+    </div>
+    </Link>
   )
 }
 

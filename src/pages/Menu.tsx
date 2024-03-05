@@ -1,49 +1,61 @@
-
 import React, { useEffect, useState } from 'react';
 import "../abstracts/Menu.scss";
 import Nav from "../components/Nav";
-import add from "../logos/add.png"
-
-
+import Cart from "../components/Cart";
+import add from "../logos/add.png";
 
 const Menu: React.FC = () => {
   const [menuItems, setMenuItems] = useState<any[]>([]);
-  const [error, setError] = useState<string | null>(null);
+  const [error, setError] = useState<any | null>(null);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await fetch('https://airbean-api-xjlcn.ondigitalocean.app/api/beans/');
         if (!response.ok) {
-          throw new Error('Failed to fetch data');
+          throw new Error('dogshit');
         }
-        const data = await response.json();
-        console.log(data);
+  
+        const contentType = response.headers.get('content-type');
+        if (contentType && contentType.includes('application/json')) {
+          const data = await response.json();
+          if (data.success) {
+            setMenuItems(data.menu);
+          } else {
+            throw new Error('no data');
+          }
+        }
       } catch (error) {
-        setError(error.message);
+        setError(error);
       }
     };
-
+  
     fetchData();
   }, []);
 
+  
+
+  console.log(menuItems)
   return (
-  <>
-    <Nav />
-    <div className="wrapper-menu">
-      <main>
-      <div className="product-container">
-      <img src={add} alt="Error" />
-      <div className="header-product">
-      <h1>byggkaffe</h1>
-      <p>hsdgshdf</p>
+    <>
+      <div className="wrapper-menu">
+        <Nav />
+        <Cart />
+        <main>
+          {menuItems.map((item: any) => (
+            <div key={item.id} className="product-container">
+              <img src={add} alt="Product" />
+              <div className="header-product">
+                <h1 className='header-kaffe'>{item.title}</h1>
+                <p className='text-kaffe'>{item.desc}</p>
+              </div>
+              <p className='pris-kaffe'>{item.price} kr</p>
+            </div>
+          ))}
+        
+       
+        </main>
       </div>
-      <p>23kr</p>
-      </div>
-      </main>
-      <div className="wrapper-menu-footer">
-      </div>
-    </div>
     </>
   );
 };
