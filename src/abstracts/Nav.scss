@@ -18,6 +18,14 @@
   margin: 1rem;
   color: white;
   text-decoration: none;
+  display: grid;
+  justify-self: center;
+}
+
+.linkwrapper {
+  display: grid;
+  justify-items: center;
+  flex-direction: column;
 }
 
 .bar {

@@ -6,7 +6,6 @@ import "../abstracts/About.scss"
 const About = () => {
   return (
     <>
-    
     <div className="wrapper-menu">
       <Nav />
     <div className="profile-text-box">
@@ -34,7 +33,7 @@ const About = () => {
         cream black, galão flavour, milk aromatic turkish skinny crema.</p>
         </div>
       <div className="profile-box">
-        <img src={image} alt="" />
+        <img className="picture-about" src={image} alt="" />
         <h1 className="header-profil">Eva Cortado</h1>
         <p className="header-text-profile">VD & Grundare</p>
       </div>

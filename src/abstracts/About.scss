@@ -36,6 +36,16 @@ margin-bottom: 17px;
 }
 
 .profile-box {
-display: grid;
+height: 15rem;
+margin: 0 auto;
+display: flex;
+flex-direction: column;
 justify-items: center;
+align-items: center;
+}
+
+.picture-about {
+    width: 5rem;
+    height: 5rem;
+    
 }
