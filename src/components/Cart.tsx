@@ -22,21 +22,26 @@ const Cart: React.FC = () => {
         </div>
         {openCart && (
           <div className="cart-content">
-            <h1>Din beställning</h1>
+            <h1 className="header-cart-box">Din beställning</h1>
+            <div className="order-cartbox">
             <div>
-              <h1 className='header-kaffe'>Byggkaffe{}</h1>
-              <p className='text-kaffe'>98kr{}</p>
+              <h1 className='header-kaffe'>Byggkaffe...............................{}</h1>
+              <p className='text-kaffe'>98 kr{}</p>
             </div>
-            <div>
+            <div className="cart-upp-ner">
               <img src={upp} alt="upp" />
-              <p className='pris-kaffe'>2{}</p>
+              <p className='pris-kaffes'>2{}</p>
               <img src={ner} alt="ner" />
             </div>
-            <div>
+            </div>
+            <div className="total-cart-box">
               <h1>Total</h1>
-              <p>243 KR</p>
+              <p className="total-cart-price">243 KR</p>
             </div>
             <p>inkl moms + drönarleverans</p>
+            <div>
+              <button>Take my money!</button>
+            </div>
           </div>
         )}
       </div>

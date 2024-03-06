@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@200&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Ropa+Sans&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
 .wrapper-menu {
   height: 100%;
   width: 100%;
@@ -32,7 +34,7 @@ background-repeat: no-repeat;
 }
 
 .header-kaffe {
-  font-family: PT Serif;
+  font-family: "PT Serif", serif;
   font-size: 23px;
   font-weight: 700;
   line-height: 28px;
@@ -40,14 +42,14 @@ background-repeat: no-repeat;
 }
 
 .text-kaffe {
-  font-family: Work Sans;
+  font-family: "Work Sans", sans-serif;
   font-size: 12px;
   font-weight: 400;
   line-height: 16px;
 }
 
 .pris-kaffe {
-  font-family: PT Serif;
+  font-family: "PT Serif", serif;
   font-size: 23px;
   font-weight: 700;
   line-height: 28px;
