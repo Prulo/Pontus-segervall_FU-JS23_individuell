@@ -7,6 +7,7 @@ import add from "../logos/add.png";
 const Menu: React.FC = () => {
   const [menuItems, setMenuItems] = useState<any[]>([]);
   const [error, setError] = useState<any | null>(null);
+  const [cartItems, setCartItems] = useState<any[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -33,17 +34,19 @@ const Menu: React.FC = () => {
     fetchData();
   }, []);
 
-  
+  const addToCart = (item: any) => {
+    setCartItems([...cartItems, item]);
+  };
 
   console.log(menuItems)
   return (
     <>
       <div className="wrapper-menu">
         <Nav />
-        <Cart />
+        <Cart cartItems={cartItems} />
         <main>
           {menuItems.map((item: any) => (
-            <div key={item.id} className="product-container">
+            <div key={item.id} className="product-container" onClick={() => addToCart(item)}>
               <img src={add} alt="Product" />
               <div className="header-product">
                 <h1 className='header-kaffe'>{item.title}</h1>
