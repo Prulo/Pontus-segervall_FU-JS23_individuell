@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "../abstracts/Nav.scss";
-import close from "../logos/close.png"
+import close from "../logos/close.png";
 
 const Nav: React.FC = () => {
   const [open, setOpen] = useState(false);
@@ -25,9 +25,7 @@ const Nav: React.FC = () => {
         onClick={handleButtonClick}
       >
         {open ? (
-          
           <img className="close-logo" src={close} alt="dog" />
-    
         ) : (
           <>
             <div className="bar"></div>
@@ -49,10 +47,10 @@ const Nav: React.FC = () => {
           </Link>
           <p id="underline">_________</p>
           <Link
-            to="/About"
+            to="/about"
             className="links"
             onClick={
-              location.pathname === "/About" ? handleCloseMenu : undefined
+              location.pathname === "/about" ? handleCloseMenu : undefined
             }
           >
             <h1>Vårt kaffe</h1>
@@ -69,10 +67,10 @@ const Nav: React.FC = () => {
           </Link>
           <p id="underline">_________</p>
           <Link
-            to="/menu"
+            to="/status"
             className="links"
             onClick={
-              location.pathname === "/menu" ? handleCloseMenu : undefined
+              location.pathname === "/status" ? handleCloseMenu : undefined
             }
           >
             <h1>Orderstatus</h1>
@@ -84,4 +82,3 @@ const Nav: React.FC = () => {
 };
 
 export default Nav;
-
