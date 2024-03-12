@@ -1,0 +1,89 @@
+.status-wrapper {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  background-color: #e5674e;
+  flex-direction: column;
+  align-items: center;
+}
+
+.status-order-wrapper {
+  display: flex;
+  flex-direction: row;
+  color: white;
+  margin-top: 7rem;
+  margin-bottom: 4rem;
+}
+
+.status-ordernr {
+  font-family: "Work Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19px;
+  margin-right: 0.5rem;
+  opacity: 70%;
+}
+
+.status-ordernr-two {
+  font-family: "Work Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 19px;
+  opacity: 70%;
+}
+
+.status-pic {
+  margin-bottom: 4rem;
+}
+
+#status-header {
+  color: white;
+  font-family: PT Serif;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 43px;
+}
+
+.status-eta-wrapper {
+  display: flex;
+  flex-direction: row;
+  margin-top: 3rem;
+  color: white;
+}
+
+.status-eta {
+  font-family: "Work Sans", sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 26px;
+  margin-right: 0.5rem;
+}
+
+.status-eta-text {
+  font-family: "Work Sans", sans-serif;
+  font-size: 21px;
+  font-weight: 400;
+  line-height: 25px;
+}
+
+.status-button {
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    border-style: none;
+    width: 12rem;
+    height: 3rem;
+    border-radius: 50px;
+    font-family: "PT Serif", serif;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 29px;
+    margin-top: 6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.status-link {
+    text-decoration: none;
+}

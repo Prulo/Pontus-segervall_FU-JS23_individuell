@@ -7,11 +7,11 @@ const Nav: React.FC = () => {
   const [open, setOpen] = useState(false);
   const location = useLocation();
 
-  const handleButtonClick = () => {
+  const ButtonClick = () => {
     setOpen(!open);
   };
 
-  const handleCloseMenu = () => {
+  const CloseMenu = () => {
     setOpen(false);
   };
 
@@ -22,7 +22,7 @@ const Nav: React.FC = () => {
       <div
         className="hamburger"
         style={{ top: hamburgerTop }}
-        onClick={handleButtonClick}
+        onClick={ButtonClick}
       >
         {open ? (
           <img className="close-logo" src={close} alt="dog" />
@@ -40,7 +40,7 @@ const Nav: React.FC = () => {
             to="/menu"
             className="links"
             onClick={
-              location.pathname === "/menu" ? handleCloseMenu : undefined
+              location.pathname === "/menu" ? CloseMenu : undefined
             }
           >
             <h1>Menu</h1>
@@ -50,7 +50,7 @@ const Nav: React.FC = () => {
             to="/about"
             className="links"
             onClick={
-              location.pathname === "/about" ? handleCloseMenu : undefined
+              location.pathname === "/about" ? CloseMenu : undefined
             }
           >
             <h1>Vårt kaffe</h1>
@@ -60,7 +60,7 @@ const Nav: React.FC = () => {
             to="/menu"
             className="links"
             onClick={
-              location.pathname === "/menu" ? handleCloseMenu : undefined
+              location.pathname === "/menu" ? CloseMenu : undefined
             }
           >
             <h1>Min profil</h1>
@@ -70,7 +70,7 @@ const Nav: React.FC = () => {
             to="/status"
             className="links"
             onClick={
-              location.pathname === "/status" ? handleCloseMenu : undefined
+              location.pathname === "/status" ? CloseMenu : undefined
             }
           >
             <h1>Orderstatus</h1>

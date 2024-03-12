@@ -1,43 +1,44 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import bag from "../logos/bag.png";
 import upp from "../logos/upp.png";
 import ner from "../logos/ner.png";
 import "../abstracts/Cart.scss";
-import { placeOrder } from './GlobalStats';
+import Button from "./Orderbutton";
 
 interface CartProps {
   cartItems: any[];
-  increaseQuantity: (index: number) => void;
-  decreaseQuantity: (index: number) => void;
-  onOrderPlaced: (orderData: any) => void; // Ensure this prop is correctly defined
+  increase: (index: number) => void;
+  decrease: (index: number) => void;
 }
 
-const Cart: React.FC<CartProps> = ({ cartItems, increaseQuantity, decreaseQuantity, onOrderPlaced }) => {
+const Cart: React.FC<CartProps> = ({
+  cartItems,
+  increase,
+  decrease,
+}) => {
   const [openCart, setOpenCart] = useState(false);
 
-  const handleCartClick = () => {
+  const handleClick = () => {
     setOpenCart(!openCart);
   };
 
-  const calculateTotal = () => {
+  const Total = () => {
     let total = 0;
-    cartItems.forEach(item => {
+    cartItems.forEach((item) => {
       total += item.price * item.quantity;
     });
     return total;
   };
 
-  const totalItems = cartItems.reduce((total, item) => total + item.quantity, 0);
-
-  const placeOrderHandler = () => {
-    // Call the placeOrder function from GlobalStats
-    placeOrder(cartItems, onOrderPlaced);
-  };
+  const totalItems = cartItems.reduce(
+    (total, item) => total + item.quantity,
+    0
+  );
 
   return (
     <div className={`cart-menu ${openCart ? "openC" : ""}`}>
       <div className="cart-wrapper">
-        <div className="image-cart" onClick={handleCartClick}>
+        <div className="image-cart" onClick={handleClick}>
           <img className="pic-cart" src={bag} alt="error" />
           <div className="image-cart-small">
             <p className="product-counter">{totalItems}</p>
@@ -54,21 +55,28 @@ const Cart: React.FC<CartProps> = ({ cartItems, increaseQuantity, decreaseQuanti
                     <p className="text-kaffe">{item.price} kr</p>
                   </div>
                   <div className="cart-upp-ner">
-                    <img src={upp} alt="upp" onClick={() => increaseQuantity(index)} />
+                    <img
+                      src={upp}
+                      alt="upp"
+                      onClick={() => increase(index)}
+                    />
                     <p className="pris-kaffes">{item.quantity}</p>
-                    <img src={ner} alt="ner" onClick={() => decreaseQuantity(index)} />
+                    <img
+                      src={ner}
+                      alt="ner"
+                      onClick={() => decrease(index)}
+                    />
                   </div>
                 </div>
               ))}
             </div>
             <div className="total-cart-box">
               <h1 className="total-cart">Total</h1>
-              <p className="total-cart-price">{calculateTotal()} KR</p>
+              <p className="total-cart-price">{Total()} KR</p>
             </div>
             <p className="moms-cart">inkl moms + drönarleverans</p>
             <div className="button-cart-box">
-              {/* Call placeOrderHandler function when the button is clicked */}
-              <button className="cart-button" onClick={placeOrderHandler}>Take my money!</button>
+              <Button cartItems={cartItems} />
             </div>
           </div>
         )}
@@ -78,4 +86,3 @@ const Cart: React.FC<CartProps> = ({ cartItems, increaseQuantity, decreaseQuanti
 };
 
 export default Cart;
-
