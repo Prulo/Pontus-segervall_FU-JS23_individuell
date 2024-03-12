@@ -5,17 +5,21 @@ import ner from "../logos/ner.png";
 import "../abstracts/Cart.scss";
 import Button from "./Orderbutton";
 
+interface CartItem {
+  title: string;
+  price: number;
+  quantity: number;
+  
+}
+
 interface CartProps {
-  cartItems: any[];
+  cartItems: CartItem[];
   increase: (index: number) => void;
   decrease: (index: number) => void;
 }
 
-const Cart: React.FC<CartProps> = ({
-  cartItems,
-  increase,
-  decrease,
-}) => {
+const Cart: React.FC<CartProps> = ({cartItems,increase,decrease,}) => {
+  
   const [openCart, setOpenCart] = useState(false);
 
   const handleClick = () => {

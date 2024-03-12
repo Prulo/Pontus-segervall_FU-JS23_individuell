@@ -4,9 +4,15 @@ import Nav from "../components/Nav";
 import Cart from "../components/Cart";
 import add from "../logos/add.png";
 
+interface MenuItem {
+  id: number;
+  title: string;
+  desc: string;
+  price: number;
+}
+
 const Menu: React.FC = () => {
-  const [menuItems, setMenuItems] = useState<any[]>([]);
-  const [error, setError] = useState<any | null>(null);
+  const [menuItems, setMenuItems] = useState<MenuItem[]>([]);
   const [cartItems, setCartItems] = useState<any[]>([]);
   console.log(cartItems);
   useEffect(() => {
@@ -21,14 +27,14 @@ const Menu: React.FC = () => {
           setMenuItems(data.menu);
         } 
       } catch (error) {
-        setError(error);
+        console.log("Dog shit")
       }
     };
 
     fetchData();
   }, []);
 
-  const addToCart = (item: any) => {
+  const addToCart = (item: MenuItem) => {
     const existingItem = cartItems.find(
       (cartItem) => cartItem.title === item.title
     );
@@ -69,7 +75,7 @@ const Menu: React.FC = () => {
           decrease={decrease}
         />
         <main>
-          {menuItems.map((item: any) => (
+          {menuItems.map((item: MenuItem) => (
             <div
               key={item.id}
               className="product-container"
