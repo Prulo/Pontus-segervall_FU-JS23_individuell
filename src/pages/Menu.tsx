@@ -4,7 +4,7 @@ import Nav from "../components/Nav";
 import Cart from "../components/Cart";
 import add from "../logos/add.png";
 
-interface MenuItem {
+interface Menu {
   id: number;
   title: string;
   desc: string;
@@ -12,9 +12,9 @@ interface MenuItem {
 }
 
 const Menu: React.FC = () => {
-  const [menuItems, setMenuItems] = useState<MenuItem[]>([]);
-  const [cartItems, setCartItems] = useState<any[]>([]);
-  console.log(cartItems);
+  const [menu, setMenu] = useState<Menu[]>([]);
+  const [cart, setCart] = useState<any[]>([]);
+  console.log(cart);
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -24,7 +24,7 @@ const Menu: React.FC = () => {
 
         const data = await response.json();
         if (data.success) {
-          setMenuItems(data.menu);
+          setMenu(data.menu);
         } 
       } catch (error) {
         console.log("Dog shit")
@@ -34,35 +34,35 @@ const Menu: React.FC = () => {
     fetchData();
   }, []);
 
-  const addToCart = (item: MenuItem) => {
-    const existingItem = cartItems.find(
+  const addToCart = (item: Menu) => {
+    const existingItem = cart.find(
       (cartItem) => cartItem.title === item.title
     );
     if (existingItem) {
-      setCartItems(
-        cartItems.map((cartItem) =>
-          cartItem.title === item.title
-            ? { ...cartItem, quantity: cartItem.quantity + 1 }
-            : cartItem
+      setCart(
+        cart.map((cart) =>
+          cart.title === item.title
+            ? { ...cart, quantity: cart.quantity + 1 }
+            : cart
         )
       );
     } else {
-      setCartItems([...cartItems, { ...item, quantity: 1 }]);
+      setCart([...cart, { ...item, quantity: 1 }]);
     }
   };
 
   const increase = (index: number) => {
-    const updatedCart = [...cartItems];
+    const updatedCart = [...cart];
     updatedCart[index].quantity++;
-    setCartItems(updatedCart);
+    setCart(updatedCart);
   };
 
   const decrease = (index: number) => {
-    const updatedCart = [...cartItems];
+    const updatedCart = [...cart];
     if (updatedCart[index].quantity > 0) {
       updatedCart[index].quantity--;
     }
-    setCartItems(updatedCart);
+    setCart(updatedCart);
   };
 
   return (
@@ -70,12 +70,12 @@ const Menu: React.FC = () => {
       <div className="wrapper-menu">
         <Nav />
         <Cart
-          cartItems={cartItems}
+          cartItems={cart}
           increase={increase}
           decrease={decrease}
         />
         <main>
-          {menuItems.map((item: MenuItem) => (
+          {menu.map((item: Menu) => (
             <div
               key={item.id}
               className="product-container"
